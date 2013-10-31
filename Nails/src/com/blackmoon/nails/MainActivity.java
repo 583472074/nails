@@ -1,22 +1,24 @@
 package com.blackmoon.nails;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.os.Bundle;
 
 public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+
+		setContentFragment(MainFragment.class, savedInstanceState);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}
+	protected void setContentFragment(Class<? extends Fragment> clazz,
+			Bundle args) {
+		Fragment fragment = Fragment.instantiate(this, clazz.getName(), args);
 
+		FragmentManager fm = getFragmentManager();
+		fm.beginTransaction().replace(android.R.id.content, fragment).commit();
+	}
 }
