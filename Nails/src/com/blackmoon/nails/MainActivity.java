@@ -1,10 +1,17 @@
 package com.blackmoon.nails;
 
+import com.blackmoon.nails.main.MainFragment;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 
+/**
+ * 应用程序的主Activity
+ * 
+ * @author blackmoon 2013-10-31
+ */
 public class MainActivity extends Activity {
 
 	@Override
