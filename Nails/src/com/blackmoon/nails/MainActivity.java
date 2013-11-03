@@ -1,10 +1,8 @@
 package com.blackmoon.nails;
 
+import com.blackmoon.nails.base.BaseActivity;
 import com.blackmoon.nails.main.MainFragment;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 
 /**
@@ -12,20 +10,21 @@ import android.os.Bundle;
  * 
  * @author blackmoon 2013-10-31
  */
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		setContentFragment(MainFragment.class, savedInstanceState);
-	}
+        // setContentFragment(MainFragment.class, savedInstanceState);
+        setContentFragment(MainFragment.class, savedInstanceState);
+    }
 
-	protected void setContentFragment(Class<? extends Fragment> clazz,
-			Bundle args) {
-		Fragment fragment = Fragment.instantiate(this, clazz.getName(), args);
-
-		FragmentManager fm = getFragmentManager();
-		fm.beginTransaction().replace(android.R.id.content, fragment).commit();
-	}
+    // public void setContentFragment(Class<? extends Fragment> clazz,
+    // Bundle args) {
+    // Fragment fragment = Fragment.instantiate(this, clazz.getName(), args);
+    //
+    // FragmentManager fm = getFragmentManager();
+    // fm.beginTransaction().replace(android.R.id.content, fragment).commit();
+    // }
 }
